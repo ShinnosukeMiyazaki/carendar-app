@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 type Props = {
-    day: number
+    day: number,
+    children: JSX.Element
 }
 
 const CarendarItem = styled.li`
@@ -9,6 +10,7 @@ const CarendarItem = styled.li`
   width: 14.28%;
   padding: 25px 5px;
   text-align: left;
+  height: 180px;
 `;
 
 const DayNumberContainer = styled.div`
@@ -16,14 +18,16 @@ const DayNumberContainer = styled.div`
   text-align:center;
   font-size:1.6rem;
   font-weight:bold;
+  margin-bottom:10px;
 `;
 
-const Component: React.SFC <Props> = ({day}) => {
+const Component: React.SFC <Props> = ({day, children}) => {
     return (
         <CarendarItem>
             <DayNumberContainer>
                 {day}
             </DayNumberContainer>
+                {children}
         </CarendarItem>
     )
 }
